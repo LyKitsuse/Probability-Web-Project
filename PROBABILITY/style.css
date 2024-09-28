@@ -1,0 +1,117 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Navigation Bar */
+nav ul {
+    list-style: none;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 30px;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    position: relative;
+}
+
+/* The traveling underline */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background-color: #333;
+    width: 0;
+    transition: width 0.4s ease, left 0.4s ease;
+}
+
+/* Hover effect for link underline */
+nav ul li a:hover::after,
+nav ul li a.active-link::after {
+    width: 100%; 
+    left: 0;
+}
+
+/* Dropdown Menu */
+nav ul li .dropdown {
+    display: none;
+    position: absolute;
+    left: 50%; /* Center the dropdown */
+    transform: translateX(-50%); /* Adjust positioning */
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    margin-top: 5px; /* Space above dropdown */
+    z-index: 1000; /* Ensures dropdown appears on top */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Animation for dropdown */
+}
+
+nav ul li .dropdown.active {
+    display: block; /* Show dropdown when active */
+    opacity: 1; /* Make visible */
+}
+
+/* Dropdown items */
+nav ul li .dropdown li a {
+    display: block;
+    padding: 10px 20px; /* Padding for dropdown links */
+    color: #333; /* Text color for dropdown links */
+}
+
+/* Hover effect for dropdown items */
+nav ul li .dropdown li a:hover {
+    background-color: #f2f2f2; /* Background color on hover */
+}
+
+/* Active Page Styles */
+.page {
+    display: none;
+    padding: 20px;
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    word-wrap: break-word; /* Wrap text properly */
+}
+

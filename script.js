@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const dropdownToggle = document.querySelector('.toggle-dropdown');
     const dropdownMenu = document.querySelector('.dropdown');
 
+    // About section navigation
+    const aboutLinks = document.querySelectorAll('.about-nav a');
+    const aboutContents = document.querySelectorAll('.about-content');
+
     // Function to switch pages
     function showPage(pageId) {
         pages.forEach(page => {
@@ -12,6 +16,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
         links.forEach(link => {
             link.classList.toggle('active-link', link.getAttribute('data-page') === pageId);
+        });
+    }
+
+    // Function to switch between About and Team sections
+    function showAboutSection(sectionId) {
+        aboutContents.forEach(content => {
+            content.classList.toggle('active', content.id === sectionId);
+        });
+
+        aboutLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('data-section') === sectionId);
         });
     }
 
@@ -27,17 +42,13 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Toggle dropdown menu on Topics click
-    dropdownToggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        dropdownMenu.classList.toggle('active');
-    });
-
-    // Close the dropdown when clicking outside of it
-    document.addEventListener('click', function(event) {
-        if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.classList.remove('active');
-        }
+    // Add event listeners for about section items
+    aboutLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const sectionId = this.getAttribute('data-section');
+            showAboutSection(sectionId);
+        });
     });
 
     // Add event listeners for dropdown items
@@ -50,5 +61,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 dropdownMenu.classList.remove('active'); // Close dropdown after selecting
             }
         });
+    });
+
+    // Toggle dropdown menu on Topics click
+    dropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        dropdownMenu.classList.toggle('active');
+    });
+
+    // Close the dropdown when clicking outside of it
+    document.addEventListener('click', function(event) {
+        if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.remove('active');
+        }
     });
 });

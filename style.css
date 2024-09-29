@@ -16,7 +16,7 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
+header h2 {
     margin: 0;
     font-size: 2rem;
 }
@@ -40,6 +40,19 @@ nav ul li a {
     font-size: 1.1rem;
     padding: 5px 10px;
     position: relative;
+}
+
+/* Main content area */
+main {
+    margin: 10px 250px; /* Add margin to the main content */
+}
+
+/* Page sections */
+.page {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 /* The traveling underline */
@@ -66,32 +79,32 @@ nav ul li a.active-link::after {
 nav ul li .dropdown {
     display: none;
     position: absolute;
-    left: 50%; /* Center the dropdown */
-    transform: translateX(-50%); /* Adjust positioning */
+    left: 50%; 
+    transform: translateX(-50%); 
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
-    margin-top: 5px; /* Space above dropdown */
-    z-index: 1000; /* Ensures dropdown appears on top */
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.3s ease; /* Animation for dropdown */
+    margin-top: 5px; 
+    z-index: 1000; 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
 }
 
 nav ul li .dropdown.active {
-    display: block; /* Show dropdown when active */
-    opacity: 1; /* Make visible */
+    display: block; 
+    opacity: 1; 
 }
 
 /* Dropdown items */
 nav ul li .dropdown li a {
     display: block;
-    padding: 10px 20px; /* Padding for dropdown links */
-    color: #333; /* Text color for dropdown links */
+    padding: 10px 20px; 
+    color: #333;
 }
 
 /* Hover effect for dropdown items */
 nav ul li .dropdown li a:hover {
-    background-color: #f2f2f2; /* Background color on hover */
+    background-color: #f2f2f2;
 }
 
 /* Active Page Styles */
@@ -112,6 +125,52 @@ h1 {
 
 p {
     font-size: 1.2rem;
-    word-wrap: break-word; /* Wrap text properly */
+    word-wrap: break-word;
 }
 
+.about-nav {
+    margin: 20px 0;
+    text-align: center; /* Center the buttons */
+}
+
+.about-nav a {
+    text-decoration: none;
+    color: #00796b; /* Dark teal */
+    margin: 0 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+.about-nav a:hover {
+    background-color: #e0f7fa; /* Light background on hover */
+}
+
+.about-nav a.active {
+    background-color: #00796b; /* Dark teal background for active tab */
+    color: white; /* White text for active tab */
+}
+
+.about-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.about-content ul li {
+    font-size: 1.2rem;
+}
+
+/* About and Team section navigation styles */
+.about-nav a.active {
+    background-color: #00796b; /* Dark teal background for active tab */
+    color: white; /* White text for active tab */
+}
+
+/* Content sections */
+.about-content {
+    display: none;
+}
+
+.about-content.active {
+    display: block;
+}
